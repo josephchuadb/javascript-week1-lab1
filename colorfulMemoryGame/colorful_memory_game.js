@@ -2,13 +2,15 @@ const colors = ['red', 'blue', 'green', 'purple', 'orange', 'pink', 'red', 'blue
 let cards = shuffle(colors.concat(colors));
 let selectedCards = [];
 let score = 0;
-let timeLeft = 30;
+let timeLeft = 45;
 let gameInterval;
 
 const startbtn = document.getElementById('startbtn');
 const gameContainer = document.getElementById('game-container');
 const scoreElement = document.getElementById('score');
 const timerElement = document.getElementById('timer');
+const winElement = document.getElementById('winbtn');
+const restartbtn = document.getElementById('restartbtn');
 
 function generateCards() {
     for (const color of cards) {
@@ -30,6 +32,7 @@ function shuffle(array) {
 
 function handleCardClick(event) {
     const card = event.target;
+    console.log(card);
     if (!card.classList.contains('card') || card.classList.contains('matched')) {
         return;
     }
@@ -43,6 +46,7 @@ function handleCardClick(event) {
 
 function checkMatch() {
     const [card1, card2] = selectedCards;
+
     if (card1.dataset.color === card2.dataset.color) {
         card1.classList.add('matched');
         card2.classList.add('matched');
@@ -58,7 +62,7 @@ function checkMatch() {
 }
 
 function startGame() {
-    let timeLeft = 30;
+    let timeLeft = 45;
     startbtn.disabled = true;
     score = 0; // Reset score to zero
     scoreElement.textContent = `Score: ${score}`;
@@ -78,11 +82,21 @@ function startGameTimer(timeLeft) {
 
         if (timeLeft === 0) {
             clearInterval(gameInterval);
-            let timeLeft = 30;
+            let timeLeft = 45;
             alert('Game Over!');
             startbtn.disabled = false;
         }
     }, 1000);
 }
 
+function winGame() {
+    alert('Congrats you have won');
+}
+
+function restartGame() {
+    startGame();
+}
+
 startbtn.addEventListener('click', startGame);
+winbtn.addEventListener('click', winGame);
+restartbtn.addEventListener('click', restartGame);
