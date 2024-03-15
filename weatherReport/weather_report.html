@@ -4,15 +4,23 @@
   <title>Weather Report</title>
 </head>
 <body>
-   <h1>Weather Report</h1>
-
-  <form id="weatherForm">
-    <label for="city">Enter City:</label>
-    <input type="text" id="city" name="city">
-    <button type="submit">Get Weather</button>
-  </form>
+    <h1>Weather Report - City</h1>
+    <form id="weatherForm">
+        <label for="city">Enter City:</label>
+        <input type="text" id="city" name="city">
+        <button type="submit">Get Weather</button>
+    </form>
+    <br>
+    <form id="LatitudeForm">
+        <label for="latitude">Enter Latitude:</label>
+        <input type="text" id="latitude" name="latitude">
+        <label for="longitude">Enter Longitude:</label>
+        <input type="text" id="longitude" name="longitude">
+        <button type="submit">Get Latitude</button>
+    </form>
 
   <div id="weatherInfo"></div>
+  <div id="latitudeInfo"></div>
 <script src="./weather_report.js"></script>
 </body>
 </html>
