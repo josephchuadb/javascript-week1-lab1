@@ -14,7 +14,6 @@ function displayEmployees() {
 function calculateTotalSalaries() {
     const totalSalaries = employees.reduce((acc, employee) => acc + employee.salary, 0);
     document.getElementById('employeesDetails').innerHTML = `<p>Total Salaries: $${totalSalaries}</p>`;
-    // alert(`Total Salaries: $${totalSalaries}`);
 }
 
 function displayHREmployees() {
@@ -42,5 +41,3 @@ function findSpecializationById(employeeId) {
       document.getElementById('employeesDetails').innerHTML = '<p>no employee has been found with this ID</p>';
     }
 }
-
-findSpecializationById
